@@ -1,0 +1,24 @@
+
+  <app-header></app-header>
+
+  <main>
+
+    <ul style="list-style: none;">
+      @for (user of users; track $index) {
+        <li>
+          <app-user [user] = "user" (select)="onSelectUser(user.id)" ></app-user>
+        </li>
+      }
+    </ul>
+
+
+    @if(selectedUser){
+      <app-task [name]="selectedUser.name"></app-task>
+    } @else{
+      <p>Select a user to see their tasks!</p>
+    }
+
+    
+
+  </main>
+  
